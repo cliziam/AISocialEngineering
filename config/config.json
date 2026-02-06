@@ -1,0 +1,44 @@
+{
+  "ollama": {
+    "host": "http://127.0.0.1:11434",
+    "model": "gpt-oss:120b",
+    "timeout": 120,
+    "max_retries": 3
+  },
+  "whatsapp": {
+    "session_path": "./data/whatsapp_session",
+    "timeout": 60,
+    "qr_timeout": 300
+  },
+  "web_search": {
+    "engine": "duckduckgo",
+    "max_results": 10,
+    "timeout": 15,
+    "rate_limit_delay": 3,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  },
+  "hardware": {
+    "gpu_enabled": true,
+    "max_memory_usage": 80,
+    "cpu_threads": null,
+    "auto_optimize": true
+  },
+  "file_management": {
+    "output_dir": "./data/output",
+    "backup_dir": "./data/backups",
+    "log_dir": "./logs",
+    "auto_backup": true,
+    "cleanup_days": 30
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file_enabled": true,
+    "console_enabled": true
+  },
+  "security": {
+    "rate_limiting": true,
+    "max_requests_per_minute": 60,
+    "sanitize_output": true
+  }
+}

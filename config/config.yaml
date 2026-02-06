@@ -1,0 +1,86 @@
+# ====================================================
+# Social Engineering Tool - Configurazione con vLLM
+# ====================================================
+
+# AI Backend Selection
+# Opzioni: "ollama", "vllm", "auto"
+ai_backend: "vllm"
+
+# ====================================================
+# vLLM Configuration (High-Performance Inference)
+# ====================================================
+vllm:
+  # Modello da utilizzare
+  # Modelli consigliati per velocità:
+  # - "microsoft/Phi-3-mini-4k-instruct" (3.8B) - VELOCISSIMO
+  # - "TinyLlama/TinyLlama-1.1B-Chat-v1.0" (1.1B) - Super veloce
+  # - "mistralai/Mistral-7B-Instruct-v0.2" (7B) - Bilanciato
+  model: "microsoft/Phi-3-mini-4k-instruct"
+  
+  # Parametri di generazione
+  max_tokens: 150  # Lunghezza massima risposta
+  temperature: 0.7  # Creatività (0.5-1.0)
+  
+  # Utilizzo GPU (0.0-1.0)
+  # 0.9 = Usa 90% della VRAM (consigliato)
+  # 0.7 = Conservativo
+  # 0.95 = Massima performance (rischio OOM)
+  gpu_memory_utilization: 0.9
+  
+  # Context window
+  max_model_len: 2048  # Ridotto per velocità
+
+# ====================================================
+# Ollama Configuration
+# ====================================================
+ollama:
+  host: "http://localhost:11434"
+  model: "llama3.3:70b"  # Modello Llama 3.3 70B
+  timeout: 1200  # Timeout aumentato a 20 minuti per modelli 70B
+
+# ====================================================
+# Web Search Configuration
+# ====================================================
+web_search:
+  max_results: 10
+  rate_limit_delay: 1  # Secondi tra richieste
+  timeout: 15  # Timeout per richiesta
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+# ====================================================
+# WhatsApp Configuration
+# ====================================================
+whatsapp:
+  session_path: "data/whatsapp_session"
+  timeout: 60  # Timeout per operazioni WhatsApp
+  qr_timeout: 300  # Timeout per scansione QR (5 minuti)
+
+# ====================================================
+# File Management
+# ====================================================
+files:
+  research_dir: "data/research"
+  logs_dir: "data/logs"
+  max_file_size_mb: 100
+
+# ====================================================
+# Performance Tuning
+# ====================================================
+performance:
+  # CPU threads (auto-detect se non specificato)
+  cpu_threads: null
+  
+  # Memoria massima utilizzabile (%)
+  max_memory_usage: 80
+  
+  # Abilita caching
+  enable_cache: true
+
+# ====================================================
+# Logging
+# ====================================================
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "data/logs/tool.log"
+  console: true
+
