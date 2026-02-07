@@ -8,8 +8,8 @@
 
 Questo repository fa parte di un progetto di tesi il cui obiettivo è:
 
-- **Analizzare** come la combinazione di fonti aperte (OSINT), modelli linguistici e canali di messaggistica possa supportare la costruzione di messaggi di social engineering.
-- **Valutare** rischi, limiti e potenzialità dell’uso di AI generativa in scenari di phishing mirato e comunicazione persuasiva.
+- **Analizzare** come la combinazione di fonti aperte, modelli linguistici e canali di messaggistica possa supportare la costruzione di messaggi di social engineering.
+- **Valutare** rischi, limiti e potenzialità dell’uso di AI generativa in scenari di social engineering mirato e comunicazione persuasiva.
 - **Dimostrare** un workflow integrato: raccolta informazioni → analisi automatica del profilo → generazione di messaggi → simulazione di invio su WhatsApp.
 
 ---
@@ -18,7 +18,7 @@ Questo repository fa parte di un progetto di tesi il cui obiettivo è:
 
 ### Raccolta informazioni sul target
 - Ricerca web automatizzata su un soggetto
-- Sanitizzazione dell'input e controlli di sicurezza
+- Formattazione dell'input e controlli di sicurezza
 
 ### Analisi AI del profilo
 - Integrazione con Ollama
@@ -78,19 +78,19 @@ Questo repository fa parte di un progetto di tesi il cui obiettivo è:
 
 I principali parametri sono definiti in `config/config.yaml`:
 
-- **Backend AI**
+1. **Backend AI**
  - `ai_backend`: `"ollama"`, `"vllm"` o `"auto"`.
 
-- **Sezione `vllm`**
+2. **Sezione `vllm`**
  - `model`: nome del modello (es. `"microsoft/Phi-3-mini-4k-instruct"`).
  - `max_tokens`, `temperature`, `gpu_memory_utilization`, `max_model_len`.
 
-- **Sezione `ollama`**
+3. **Sezione `ollama`**
  - `host`: URL del server Ollama (es. `"http://localhost:11434"`).
  - `model`: nome del modello (es. `"llama3.2:1b"`).
  - `timeout`: timeout per le richieste al modello.
 
-- **Web search, WhatsApp, files, performance, logging**
+4. **Web search, WhatsApp, files, performance, logging**
  - Parametri per numero risultati, timeout, directory di output, livello di logging, ecc.
 
 ---
